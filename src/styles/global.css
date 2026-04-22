@@ -2,6 +2,18 @@
 /* 역할: 전체 앱에 공통으로 적용되는 기본 스타일 및 CSS 변수 정의 */
 
 /* ─────────────────────────────────────────
+   Google Fonts / 외부 폰트 임포트
+   - 제목(heading): Black Han Sans — 굵고 강렬한 한국어 디스플레이 폰트
+   - 본문(body):    Noto Sans KR   — 가독성 좋은 한국어 본문 폰트
+   - 영문 강조:     Bebas Neue     — 숫자·영문 액센트용 콘덴스드 폰트
+   ※ index.html의 <head>에 아래 <link> 태그를 추가해야 폰트가 적용됩니다:
+ 
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+───────────────────────────────────────── */
+
+/* ─────────────────────────────────────────
    CSS 변수 (디자인 토큰)
    앱 전반에서 색상, 폰트, 반경 등을 일관성 있게 관리
 ───────────────────────────────────────── */
@@ -26,8 +38,11 @@
   --color-star: #f4a41b;
 
   /* 폰트 패밀리 */
-  --font-heading: "Playfair Display", "Noto Serif KR", serif;
-  --font-body: "Pretendard", "Noto Sans KR", sans-serif;
+  /* --font-heading: "Playfair Display", "Noto Serif KR", serif; */
+  /* --font-body: "Pretendard", "Noto Sans KR", sans-serif; */
+  --font-heading: "Black Han Sans", "Noto Sans KR", sans-serif;
+  --font-display: "Bebas Neue", "Black Han Sans", sans-serif;
+  --font-body:    "Noto Sans KR", sans-serif;
 
   /* 반경 */
   --radius-sm: 8px;
