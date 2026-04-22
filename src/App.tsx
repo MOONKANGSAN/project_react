@@ -13,13 +13,13 @@ import Footer from "./components/Footer/Footer";
 import type { TabId } from "./types";
 import "./styles/global.css";
 
-function App(): JSX.Element {
+function App(): TSX.Element {
   // 현재 활성화된 탭 메뉴를 추적하는 상태 - TabId 타입으로 허용 값을 제한
   const [activeTab, setActiveTab] = useState<TabId>("home");
 
   // 탭에 따라 렌더링할 컨텐츠를 결정하는 함수
   // JSX.Element | null 반환 타입으로 렌더링 결과를 명시
-  const renderContent = (): JSX.Element | null => {
+  const renderContent = (): TSX.Element | null => {
     switch (activeTab) {
       case "home":
         return (
