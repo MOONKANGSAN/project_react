@@ -6,7 +6,7 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import MainBanner from "./components/MainBanner/MainBanner";
-import LatestReviews from "./components/Latestreviews/LatestReviews";
+import LatestReviews from "./components/LatestReviews/LatestReviews";
 import RestaurantList from "./components/RestaurantList/RestaurantList";
 import LikedList from "./components/LikedList/LikedList";
 import Footer from "./components/Footer/Footer";
