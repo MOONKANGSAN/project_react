@@ -1,121 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// 📁 src/App.tsx
+// 역할: 앱 전체의 최상위 컴포넌트. 라우팅 및 전역 레이아웃을 담당
+//       TabId 타입으로 허용되지 않는 탭 값 사용을 컴파일 타임에 차단
+//       추후 React Router를 사용해 페이지 전환을 관리할 예정
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import MainBanner from "./components/MainBanner/MainBanner";
+import LatestReviews from "./components/LatestReviews/LatestReviews";
+import RestaurantList from "./components/RestaurantList/RestaurantList";
+import LikedList from "./components/LikedList/LikedList";
+import Footer from "./components/Footer/Footer";
+import type { TabId } from "./types";
+import "./styles/global.css";
+
+function App(): JSX.Element {
+  // 현재 활성화된 탭 메뉴를 추적하는 상태 - TabId 타입으로 허용 값을 제한
+  const [activeTab, setActiveTab] = useState<TabId>("home");
+
+  // 탭에 따라 렌더링할 컨텐츠를 결정하는 함수
+  // JSX.Element | null 반환 타입으로 렌더링 결과를 명시
+  const renderContent = (): JSX.Element | null => {
+    switch (activeTab) {
+      case "home":
+        return (
+          <>
+            {/* 메인 배너 섹션 */}
+            <MainBanner />
+            {/* 최신 리뷰 섹션 */}
+            <LatestReviews />
+            {/* 맛집 리스트 섹션 */}
+            <RestaurantList />
+          </>
+        );
+      case "restaurants":
+        return <RestaurantList showAll />;
+      case "liked":
+        return <LikedList />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-wrapper">
+      {/* 상단 고정 내비게이션 바 */}
+      <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className="ticks"></div>
+      {/* 메인 컨텐츠 영역 */}
+      <main className="main-content">{renderContent()}</main>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* 하단 푸터 */}
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
