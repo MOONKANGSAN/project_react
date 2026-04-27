@@ -5,8 +5,8 @@
 //       추후 Spring API: GET /api/reviews/latest?limit=4 로 교체 예정
 
 import React from "react";
-import { MOCK_LATEST_REVIEWS } from "../../data/mockData";
-import type { Review, ReviewCardProps } from "../../types";
+import { MOCK_LATEST_REVIEWS } from "@/data/mockData";
+import type { Review, ReviewCardProps } from "@/types";
 import "./LatestReviews.css";
 
 // 별점을 별 문자열로 변환하는 유틸 함수
@@ -98,4 +98,4 @@ function LatestReviews(): JSX.Element {
   );
 }
 
-export default LatestReviews;
+export {default as LatestReviews}

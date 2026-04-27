@@ -4,9 +4,10 @@
 //       현재는 mockData에서 isLiked=true인 데이터를 사용
 //       추후 Spring API: GET /api/users/{userId}/likes + JWT 인증 연동 예정
 
+
 import React, { useState } from "react";
-import { MOCK_LIKED_RESTAURANTS } from "../../data/mockData";
-import type { Restaurant } from "../../types";
+import { MOCK_LIKED_RESTAURANTS } from "@/data/mockData";
+import type { Restaurant } from "@/types";
 import "./LikedList.css";
 
 // 별점 표시 유틸 함수
@@ -106,4 +107,4 @@ function LikedList(): JSX.Element {
   );
 }
 
-export default LikedList;
+export { default as LikedList }

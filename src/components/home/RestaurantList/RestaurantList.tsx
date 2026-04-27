@@ -6,7 +6,7 @@
 //       추후 Spring API: GET /api/restaurants?category=&sort=&page= 로 교체 예정
 
 import React, { useState } from "react";
-import { MOCK_RESTAURANTS } from "../../data/mockData";
+import { MOCK_RESTAURANTS } from "@/data/mockData";
 import type {
   Restaurant,
   RestaurantCardProps,
@@ -238,4 +238,4 @@ function RestaurantList({ showAll = false }: RestaurantListProps): JSX.Element {
   );
 }
 
-export default RestaurantList;
+export { default as RestaurantList }

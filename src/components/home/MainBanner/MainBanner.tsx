@@ -5,7 +5,7 @@
 //       추후 Spring API에서 인기 검색어, 배너 이미지 URL 등을 받아 동적으로 변경 예정
 
 import React, { useState } from "react";
-import type { CategoryItem } from "../../types";
+import type { CategoryItem } from "@/types";
 import "./MainBanner.css";
 
 // 카테고리 바로가기 데이터 - CategoryItem[] 타입으로 구조 보장
@@ -105,4 +105,4 @@ function MainBanner(): JSX.Element {
   );
 }
 
-export default MainBanner;
+export { default as MainBanner }

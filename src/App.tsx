@@ -3,15 +3,16 @@
 //       TabId 타입으로 허용되지 않는 탭 값 사용을 컴파일 타임에 차단
 //       추후 React Router를 사용해 페이지 전환을 관리할 예정
 
-import React, { useState } from "react";
-import Navbar from "./components/Navbar/Navbar";
-import MainBanner from "./components/MainBanner/MainBanner";
-import LatestReviews from "./components/LatestReviews/LatestReviews";
-import RestaurantList from "./components/RestaurantList/RestaurantList";
-import LikedList from "./components/LikedList/LikedList";
-import Footer from "./components/Footer/Footer";
-import type { TabId } from "./types";
-import "./styles/global.css";
+import {
+  Navbar,
+  MainBanner,
+  LatestReviews,
+  RestaurantList,
+  LikedList,
+  Footer
+} from "@/components";
+import type { TabId } from "@/types";
+import "@/styles/global.css";
 
 function App(): TSX.Element {
   // 현재 활성화된 탭 메뉴를 추적하는 상태 - TabId 타입으로 허용 값을 제한

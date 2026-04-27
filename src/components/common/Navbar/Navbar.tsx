@@ -5,7 +5,7 @@
 //       추후 로그인 상태에 따른 사용자 아이콘, 알림 기능 연결 예정
 
 import React, { useState, useEffect } from "react";
-import type { NavbarProps, NavTab, TabId } from "../../types";
+import type { NavbarProps, NavTab, TabId } from "@/types";
 import "./Navbar.css";
 
 // 탭 메뉴 정의 데이터 - NavTab[] 타입으로 구조 보장
@@ -113,4 +113,4 @@ function Navbar({ activeTab, onTabChange }: NavbarProps): JSX.Element {
   );
 }
 
-export default Navbar;
+export { default as Navbar }
